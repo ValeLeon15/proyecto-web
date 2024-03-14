@@ -17,7 +17,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Arrendatario {
     @Id
-    private long uuid;
+    private long id;
     private String nombre;
     private String cedula;
     
