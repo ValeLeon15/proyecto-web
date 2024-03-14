@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+   name: progrupo14
+   namespace: thymeleaf
+spec:
+   ingressClassName: public
+   rules:
+   - host: gruposjaveriana.dynaco.co
+     http:
+       paths:
+       - path: /progrupo14
+         pathType: Prefix
+         backend:
+           service:
+             name: progrupo14
+             port:
+               number: 8080
