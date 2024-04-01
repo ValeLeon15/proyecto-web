@@ -1,5 +1,7 @@
 package com.example.demo.dto;
 
+import java.util.Date;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -12,13 +14,15 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ArrendatarioDTO {
+public class CalificacionDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String nombre;
-    private String apellido;
-    private String correo;
-    private String contraseña;
-    private int telefono;
+    private Long idSolicitudArrendamiento;
+    private int calificacionArrendatario;
+    private String comentarioArrendatario;
+    private int calificacionPropiedad;
+    private String comentarioPropiedad;
+    private Date fechaCalificacion;
+
 }

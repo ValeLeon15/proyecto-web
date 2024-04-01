@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import java.util.Date;
+
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
@@ -19,14 +21,16 @@ import lombok.Setter;
 @AllArgsConstructor
 @Where(clause = "status = 0")
 @SQLDelete(sql = "UPDATE application SET  status = 1 WHERE id=?")
-public class Arrendador {
+public class Calificacion {
+    //calificacion del arrendador sobre el arrendatario y del arrendador sobre la propiedad
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String nombre;
-    private String apellido;
-    private String correo;
-    private String contraseña;
-    private int telefono;
+    private long id;
+    private Long idSolicitudArrendamiento;
+    private int calificacionArrendatario;
+    private String comentarioArrendatario;
+    private int calificacionPropiedad;
+    private String comentarioPropiedad;
+    private Date fechaCalificacion;
 
 }

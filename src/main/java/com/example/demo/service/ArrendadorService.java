@@ -6,11 +6,13 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.ArrendadorDTO;
 import com.example.demo.entity.Arrendador;
 import com.example.demo.repository.ArrendadorRepository;
 
+@Service
 public class ArrendadorService {
     //crear cada metodo que va a resolver, por cada clase minimo 5 (encontrar por id, guardar, acutilizar, eliminar, traer todos)
     //siempre retornar un dto
