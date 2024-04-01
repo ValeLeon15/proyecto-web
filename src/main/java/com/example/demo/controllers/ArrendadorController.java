@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.dto.ArrendadorDTO;
 import com.example.demo.entity.Arrendador;
 import com.example.demo.repository.ArrendadorRepository;
+import com.example.demo.service.ArrendadorService;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,36 +26,38 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping(value="")
-public class ArrendadorControlador {
+//no poner en un controlador un repository
+public class ArrendadorController {
+    //endpoints, metodos por cada elemento del crud
+    ArrendadorService arrendadorService;
 
     @Autowired
-    private ArrendadorRepository arrendadorRepository;
-
-    @CrossOrigin
-    @GetMapping( produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Arrendador> get( ) throws Exception{
-        return (List<Arrendador>) arrendadorRepository.findAll();
+    private ArrendadorController (ArrendadorService arrendadorService){
+        this.arrendadorService = arrendadorService;
     }
-    @CrossOrigin
+
     @GetMapping( value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Arrendador get( @PathVariable Long id ) throws Exception{
-        return arrendadorRepository.findById(id).get();
-    }
-    @CrossOrigin
-    @PostMapping( produces = MediaType.APPLICATION_JSON_VALUE)
-    public Arrendador save( @RequestBody Arrendador application ) throws Exception {
-        return arrendadorRepository.save(application);
-    }
-
-    @CrossOrigin
-    @PutMapping( produces = MediaType.APPLICATION_JSON_VALUE)
-    public Arrendador update( @RequestBody Arrendador application ) throws Exception {
-        return arrendadorRepository.save(application);
+    public ArrendadorDTO get( @PathVariable Long id ){
+        return arrendadorService.get(id); //solo esto porque la logica ya esta en el service
     }
     
-    @CrossOrigin
+    @GetMapping( produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<ArrendadorDTO> get( ){
+        return arrendadorService.get();
+    }
+   
+    @PostMapping( produces = MediaType.APPLICATION_JSON_VALUE)
+    public ArrendadorDTO save( @RequestBody ArrendadorDTO arrendadorDTO){ //va a venir un json en la peticion y lo va a convertir en un objeto
+        return arrendadorService.save(arrendadorDTO);
+    }
+
+    @PutMapping( produces = MediaType.APPLICATION_JSON_VALUE)
+    public ArrendadorDTO update( @RequestBody ArrendadorDTO arrendadorDTO) {
+        return arrendadorService.update(arrendadorDTO);
+    }
+
     @DeleteMapping( value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void delete( @PathVariable Long id ) throws Exception {
-        arrendadorRepository.deleteById(id);
+    public void delete( @PathVariable Long id ){
+        arrendadorService.delete(id);
     }
 }
