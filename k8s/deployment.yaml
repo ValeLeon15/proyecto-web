@@ -20,7 +20,7 @@ spec:
            image: localhost:5000/progrupo14:latest
            ports:
               - containerPort: 8080
-           env: 
+           env: #no se si esta bien esto
             - name: db_host
               value: "190.146.2.119"
             - name: db_port
