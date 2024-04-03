@@ -26,11 +26,11 @@ spec:
             - name: db_port
               value: "4407"
             - name: db_basedatos
-              value: ""
+              value: "arrendador"
             - name: db_usuario
-              value: ""
+              value: "arrendador"
             - name: db_contrasena
-              value: ""
+              value: "123Pablo"
 ---
 apiVersion: v1
 kind: Service
