@@ -19,8 +19,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Where(clause = "status = 0")
-@SQLDelete(sql = "UPDATE application SET  status = 1 WHERE id=?")
+
+@SQLDelete(sql = "DELETE FROM arrendador WHERE id=?")
 public class Calificacion {
     //calificacion del arrendador sobre el arrendatario y del arrendador sobre la propiedad
     @Id

@@ -27,11 +27,16 @@ public class ArrendadorTest {
         System.out.println("-----------------");
         System.out.println("-----------------");
 
-        int cantidad = arrendadorController.get().size();
+        // Verificar la cantidad de arrendadores antes de guardar uno nuevo
+        int cantidadAntes = arrendadorController.get().size();
+        
+        // Guardar un nuevo arrendador
         ArrendadorDTO arrendadorDTO = new ArrendadorDTO(null, "nombre", "apellido", "correo", "contraseña", 3434);
         arrendadorDTO = arrendadorController.save(arrendadorDTO);
-        int nuevaCantidad = arrendadorController.get().size();
-        Assert.assertEquals(cantidad + 1, nuevaCantidad);
+        
+        // Verificar que se haya guardado correctamente
+        int cantidadDespuesGuardar = arrendadorController.get().size();
+        Assert.assertEquals(cantidadAntes + 1, cantidadDespuesGuardar);
 
         System.out.println("-----------------");
         System.out.println("-----------------");
@@ -39,12 +44,23 @@ public class ArrendadorTest {
         System.out.println("-----------------");
         System.out.println("-----------------");
 
+        // Actualizar el nombre del arrendador
         arrendadorDTO.setNombre("nombre2");
         arrendadorController.update(arrendadorDTO);
+        
+        // Verificar que se haya actualizado correctamente
         ArrendadorDTO arrendadorActualizadoDTO = arrendadorController.get(arrendadorDTO.getId());
         Assert.assertEquals("nombre2", arrendadorActualizadoDTO.getNombre());
+
         System.out.println("-----------------");
         System.out.println("-----------------");
         System.out.println("-----------------");
+        
+        // Eliminar el arrendador
+        arrendadorController.delete(arrendadorDTO.getId());
+        
+        // Verificar que se haya eliminado correctamente
+        int cantidadDespuesEliminar = arrendadorController.get().size();
+        Assert.assertEquals(cantidadAntes, cantidadDespuesEliminar);
     }
 }
