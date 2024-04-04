@@ -7,34 +7,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.example.demo.controllers.ArrendadorController;
-import com.example.demo.dto.ArrendadorDTO;
+import com.example.demo.controllers.PropiedadController;
+import com.example.demo.dto.PropiedadDTO;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-
-public class ArrendadorTest {
+public class PropiedadTest {
     
     @Autowired
-    ArrendadorController arrendadorController;
+    PropiedadController propiedadController;
 
     @Test
-    public void arrendadorTest(){
+    public void propiedadTest(){
         System.out.println("-----------------");
         System.out.println("-----------------");
         System.out.println("-----------------");
         System.out.println("-----------------");
         System.out.println("-----------------");
 
-        // Verificar la cantidad de arrendadores antes de guardar uno nuevo
-        int cantidadAntes = arrendadorController.get().size();
+        // Verificar la cantidad de propiedades antes de guardar una nueva
+        int cantidadAntes = propiedadController.get().size();
         
-        // Guardar un nuevo arrendador
-        ArrendadorDTO arrendadorDTO = new ArrendadorDTO(null, "nombre", "apellido", "correo", "contraseña", 3434);
-        arrendadorDTO = arrendadorController.save(arrendadorDTO);
+        // Guardar una nueva propiedad
+        PropiedadDTO propiedadDTO = new PropiedadDTO(null, "Casa de campo", "Medellín", "Antioquia", "Alquiler", "Hermosa casa de campo con vista a las montañas", 4, 2, true, true, false, 150000);
+        propiedadDTO = propiedadController.save(propiedadDTO);
         
         // Verificar que se haya guardado correctamente
-        int cantidadDespuesGuardar = arrendadorController.get().size();
+        int cantidadDespuesGuardar = propiedadController.get().size();
         Assert.assertEquals(cantidadAntes + 1, cantidadDespuesGuardar);
 
         System.out.println("-----------------");
@@ -43,23 +42,24 @@ public class ArrendadorTest {
         System.out.println("-----------------");
         System.out.println("-----------------");
 
-        // Actualizar el nombre del arrendador
-        arrendadorDTO.setNombre("nombre2");
-        arrendadorController.update(arrendadorDTO);
+        // Actualizar la descripción de la propiedad
+        propiedadDTO.setDescripcion("Acogedora casa de campo con vista a las montañas");
+        propiedadController.update(propiedadDTO);
         
         // Verificar que se haya actualizado correctamente
-        ArrendadorDTO arrendadorActualizadoDTO = arrendadorController.get(arrendadorDTO.getId());
-        Assert.assertEquals("nombre2", arrendadorActualizadoDTO.getNombre());
+        PropiedadDTO propiedadActualizadaDTO = propiedadController.get(propiedadDTO.getId());
+        Assert.assertEquals("Acogedora casa de campo con vista a las montañas", propiedadActualizadaDTO.getDescripcion());
 
         System.out.println("-----------------");
         System.out.println("-----------------");
         System.out.println("-----------------");
         
-        // Eliminar el arrendador
-        arrendadorController.delete(arrendadorDTO.getId());
+        // Eliminar la propiedad
+        propiedadController.delete(propiedadDTO.getId());
         
         // Verificar que se haya eliminado correctamente
-        int cantidadDespuesEliminar = arrendadorController.get().size();
+        int cantidadDespuesEliminar = propiedadController.get().size();
         Assert.assertEquals(cantidadAntes, cantidadDespuesEliminar);
     }
 }
+

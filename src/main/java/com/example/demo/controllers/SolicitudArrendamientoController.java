@@ -33,7 +33,7 @@ public class SolicitudArrendamientoController {
     }
     
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<solicitudArrendamientoDTO> getAll(){
+    public List<solicitudArrendamientoDTO> get(){
         return solicitudArrendamientoService.get();
     }
    
