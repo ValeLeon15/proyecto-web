@@ -20,7 +20,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 
-@SQLDelete(sql = "DELETE FROM arrendador WHERE id=?")
+@SQLDelete(sql = "DELETE FROM calificacion WHERE id=?")
 public class Calificacion {
     //calificacion del arrendador sobre el arrendatario y del arrendador sobre la propiedad
     @Id

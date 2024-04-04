@@ -18,7 +18,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 
-@SQLDelete(sql = "DELETE FROM arrendador WHERE id=?")
+@SQLDelete(sql = "DELETE FROM propiedad WHERE id=?")
 public class Propiedad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

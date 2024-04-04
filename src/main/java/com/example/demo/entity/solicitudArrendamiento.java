@@ -20,7 +20,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 
-@SQLDelete(sql = "DELETE FROM arrendador WHERE id=?")
+@SQLDelete(sql = "DELETE FROM solicitud_arrendamiento WHERE id=?")
 public class solicitudArrendamiento {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
