@@ -1,11 +1,18 @@
 $env:db_host = "190.146.2.119"
 $env:db_port = "4407"
-$env:db_basedatos = "estudiante"
-$env:db_usuario = "estudiante"
-$env:db_contrasena = "1234Pablo"
-$env:sonar = "sqp_f1c691a8c76dab4141f3615b04a053c82a065e6c"
+$env:db_basedatos = "grupo_1_4"
+$env:db_usuario = "grupo_1_4"
+$env:db_contrasena = "grupo_1_4"
+$env:sonar = "sqp_0b4dcca9c5c2d477ac8a1ef217dd123de2cd0efd"
+
+set db_host=190.146.2.119
+set db_port=4407
+set db_basedatos=grupo_1_4
+set db_usuario=grupo_1_4
+set db_contrasena=grupo_1_4
+set sonar=sqp_0b4dcca9c5c2d477ac8a1ef217dd123de2cd0efd
 
 
-$env:projectKey = "Estudiante"
-$env:projectName = "Estudiante"
+$env:projectKey = "Pro_grupo_1_4"
+$env:projectName = "Pro_grupo_1_4"
 $env:urlSonar = "http://sonarqube.dynaco.co"
