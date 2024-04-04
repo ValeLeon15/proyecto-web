@@ -25,7 +25,7 @@ public class Calificacion {
     //calificacion del arrendador sobre el arrendatario y del arrendador sobre la propiedad
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private Long idSolicitudArrendamiento;
     private int calificacionArrendatario;
     private String comentarioArrendatario;

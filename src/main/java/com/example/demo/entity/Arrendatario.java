@@ -22,7 +22,7 @@ import lombok.Setter;
 public class Arrendatario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String nombre;
     private String apellido;
     private String correo;

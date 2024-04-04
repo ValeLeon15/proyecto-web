@@ -29,31 +29,26 @@ public class ArrendadorController {
         this.arrendadorService = arrendadorService;
     }
 
-    @CrossOrigin
     @GetMapping( value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ArrendadorDTO get( @PathVariable Long id ){
         return arrendadorService.get(id); //solo esto porque la logica ya esta en el service
     }
     
-    @CrossOrigin
     @GetMapping( produces = MediaType.APPLICATION_JSON_VALUE)
     public List<ArrendadorDTO> get( ){
         return arrendadorService.get();
     }
    
-    @CrossOrigin
     @PostMapping( produces = MediaType.APPLICATION_JSON_VALUE)
     public ArrendadorDTO save( @RequestBody ArrendadorDTO arrendadorDTO){ //va a venir un json en la peticion y lo va a convertir en un objeto
         return arrendadorService.save(arrendadorDTO);
     }
 
-    @CrossOrigin
     @PutMapping( produces = MediaType.APPLICATION_JSON_VALUE)
     public ArrendadorDTO update( @RequestBody ArrendadorDTO arrendadorDTO) {
         return arrendadorService.update(arrendadorDTO);
     }
-
-    @CrossOrigin
+    
     @DeleteMapping( value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public void delete( @PathVariable Long id ){
         arrendadorService.delete(id);

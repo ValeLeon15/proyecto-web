@@ -24,7 +24,7 @@ import lombok.Setter;
 public class solicitudArrendamiento {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private int idSolicitudArrendamiento;
     private int idPropiedad;
     private int idUsuarioArrendatario;

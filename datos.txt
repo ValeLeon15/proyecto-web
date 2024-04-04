@@ -1,0 +1,11 @@
+$env:db_host = "190.146.2.119"
+$env:db_port = "4407"
+$env:db_basedatos = "estudiante"
+$env:db_usuario = "estudiante"
+$env:db_contrasena = "1234Pablo"
+$env:sonar = "sqp_f1c691a8c76dab4141f3615b04a053c82a065e6c"
+
+
+$env:projectKey = "Estudiante"
+$env:projectName = "Estudiante"
+$env:urlSonar = "http://sonarqube.dynaco.co"

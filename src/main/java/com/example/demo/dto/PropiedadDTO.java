@@ -15,7 +15,7 @@ import lombok.Setter;
 public class PropiedadDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String nombrePropiedad;
     private String municipio;
     private String departamento;

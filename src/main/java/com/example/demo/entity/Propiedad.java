@@ -22,7 +22,7 @@ import lombok.Setter;
 public class Propiedad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String nombrePropiedad;
     private String municipio;
     private String departamento;

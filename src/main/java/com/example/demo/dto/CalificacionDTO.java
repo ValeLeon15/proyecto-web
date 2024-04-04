@@ -17,7 +17,7 @@ import lombok.Setter;
 public class CalificacionDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private Long idSolicitudArrendamiento;
     private int calificacionArrendatario;
     private String comentarioArrendatario;
