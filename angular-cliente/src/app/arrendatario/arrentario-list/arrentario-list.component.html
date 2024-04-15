@@ -1,0 +1,18 @@
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Ver</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let arrendatario of arrendatarios">
+                <td>{{arrendatario.nombre}}</td>
+                <td>{{arrendatario.apellido}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
