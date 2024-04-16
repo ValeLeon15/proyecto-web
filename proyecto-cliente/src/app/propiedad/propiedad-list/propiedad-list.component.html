@@ -1,0 +1,44 @@
+<a [routerLink]="['/propiedad/create', arrendadorId]">Crearle una propiedad al arrendador {{arrendadorId}}</a>
+<div *ngIf="propiedades.length > 0">
+  <table>
+      <thead>
+          <tr>
+              <th>id</th>
+              <th>nombrePropiedad</th>
+              <th>municipio</th>
+              <th>departamento</th>
+              <th>tipoIngreso</th>
+              <th>descripción</th>
+              <th>cantHabitaciones</th>
+              <th>cantBanos</th>
+              <th>permiteMascotas</th>
+              <th>tienePiscina</th>
+              <th>tieneAsador</th>
+              <th>valorNoche</th>
+              <th>Ver</th>
+              <th>Editar</th>
+              <th>Eliminar</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let propiedad of propiedades">
+              <td>{{propiedad.id}}</td>
+              <td>{{propiedad.nombrePropiedad}}</td>
+              <td>{{propiedad.municipio}}</td>
+              <td>{{propiedad.departamento}}</td>
+              <td>{{propiedad.tipoIngreso}}</td>
+              <td>{{propiedad.descripcion}}</td>
+              <td>{{propiedad.cantHabitaciones}}</td>
+              <td>{{propiedad.cantBanos}}</td>
+              <td>{{propiedad.permiteMascotas}}</td>
+              <td>{{propiedad.tienePiscina}}</td>
+              <td>{{propiedad.tieneAsador}}</td>
+              <td>{{propiedad.valorNoche}}</td>
+              <td><a [routerLink]="['/propiedad/view', propiedad.id]">Ver propiedad</a></td>
+              <td><a [routerLink]="['/propiedad/edit', propiedad.id]">Editar propiedad</a></td>
+              <td><a [routerLink]="['/propiedad/delete', propiedad.id]">Eliminar propiedad</a></td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+<h1 *ngIf="propiedades.length == 0">El arrendador no tiene propiedades</h1>

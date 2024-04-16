@@ -1,0 +1,33 @@
+<a [routerLink]="['/propiedad/create', arrendatarioId]">Crearle una solicitud al arrendatario
+    {{arrendatarioId}}</a>
+<div *ngIf="solicitudes.length > 0">
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>cantPersonas</th>
+                <th>estado</th>
+                <th>fechaFinal</th>
+                <th>fechaInicial</th>
+                <th>Propiedad</th>
+                <th>Ver</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let solicitud of solicitudes">
+                <td>{{solicitud.id}}</td>
+                <td>{{solicitud.cantPersonas}}</td>
+                <td>{{solicitud.estado}}</td>
+                <td>{{solicitud.fechaFinal}}</td>
+                <td>{{solicitud.fechaInicial}}</td>
+                <td><a [routerLink]="['/propiedad/view', solicitud.idPropiedad]">Ver propiedad</a></td>
+                <td><a [routerLink]="['/solicitudarrendamiento/view', solicitud.id]">Ver solicitud</a></td>
+                <td><a [routerLink]="['/solicitudarrendamiento/edit', solicitud.id]">Eliminar solicitud</a></td>
+                <td><a [routerLink]="['/solicitudarrendamiento/delete', solicitud.id]">Eliminar solicitud</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<h1 *ngIf="solicitudes.length <= 0">El arrendatario no tiene solicitudes de arrendamiento</h1>

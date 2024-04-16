@@ -1,0 +1,31 @@
+<a [routerLink]="['/arrendador/create']">Crear un nuevo arrendador</a>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo</th>
+                <th>Telefono</th>
+                <th>Ver propiedades</th>
+                <th>Eliminar arrendador</th>
+                <th>Ver arrendador</th>
+                <th>Editar arrendador</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let arrendador of arrendadores">
+                <td>{{arrendador.id}}</td>
+                <td>{{arrendador.nombre}}</td>
+                <td>{{arrendador.apellido}}</td>
+                <td>{{arrendador.correo}}</td>
+                <td>{{arrendador.telefono}}</td>
+                <td><a [routerLink]="['/propiedades/arrendador/', arrendador.id]">Propiedades</a></td>
+                <td><a [routerLink]="['/arrendatario/delete', arrendador.id]">Eliminar</a></td>
+                <td><a [routerLink]="['/arrendador/view', arrendador.id]">Ver</a></td>
+                <td><a [routerLink]="['/arrendador/edit/', arrendador.id]">Editar</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
