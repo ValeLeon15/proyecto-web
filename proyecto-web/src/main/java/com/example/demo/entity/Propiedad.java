@@ -29,10 +29,10 @@ public class Propiedad {
     private String tipoIngreso;
     private String descripcion;
     private int cantHabitaciones;
-    private int cantBaños;
+    private int cantBanos;
     private boolean permiteMascotas;
     private boolean tienePiscina;
     private boolean tieneAsador;
     private int valorNoche;
-
+    private int arrendadorId; //esta mal
 }

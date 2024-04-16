@@ -28,6 +28,4 @@ public class Arrendatario {
     private String correo;
     private String contraseña;
     private int telefono;
-
-    
-}
+}   

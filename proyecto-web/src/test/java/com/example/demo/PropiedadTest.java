@@ -29,7 +29,7 @@ public class PropiedadTest {
         int cantidadAntes = propiedadController.get().size();
         
         // Guardar una nueva propiedad
-        PropiedadDTO propiedadDTO = new PropiedadDTO(null, "Casa de campo", "Medellín", "Antioquia", "Alquiler", "Hermosa casa de campo con vista a las montañas", 4, 2, true, true, false, 150000);
+        PropiedadDTO propiedadDTO = new PropiedadDTO(null, "Casa de campo", "Medellín", "Antioquia", "Alquiler", "Hermosa casa de campo con vista a las montanas", 4, 2, true, true, false, 150000, 5);
         propiedadDTO = propiedadController.save(propiedadDTO);
         
         // Verificar que se haya guardado correctamente

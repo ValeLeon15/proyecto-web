@@ -38,6 +38,7 @@ public class PropiedadController {
    
     @PostMapping( produces = MediaType.APPLICATION_JSON_VALUE)
     public PropiedadDTO save( @RequestBody PropiedadDTO propiedadDTO){
+        System.out.println("propiedadDTO: " + propiedadDTO.toString());
         return propiedadService.save(propiedadDTO);
     }
 
@@ -49,6 +50,13 @@ public class PropiedadController {
     @DeleteMapping( value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public void delete( @PathVariable Long id ){
         propiedadService.delete(id);
+    }
+
+    //"localhost:8080//progrupo14/propiedad/arrendador/{id}"
+    //crear un método para que obtenga todos las Propiedades dependiendo de mi id como arrendador
+    @GetMapping( value = "/arrendador/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<PropiedadDTO> getPropiedadesArrendador( @PathVariable Long id ){
+        return propiedadService.getPropiedadesArrendador(id);
     }
 
 }
