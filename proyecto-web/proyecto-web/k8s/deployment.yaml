@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: progrupo14
+  namespace: thymeleaf
+spec:
+  selector:
+    matchLabels:
+      app: progrupo14
+  replicas: 1
+  template:
+    metadata:
+      labels:
+         app: progrupo14
+    spec:
+      imagePullSecrets:
+         - name: github-secret
+      containers:
+         - name: progrupo14
+           image: localhost:5000/progrupo14:latest
+           ports:
+              - containerPort: 8080
+           env: #no se si esta bien esto
+            - name: db_host
+              value: "190.146.2.119"
+            - name: db_port
+              value: "4407"
+            - name: db_basedatos
+              value: "arrendador"
+            - name: db_usuario
+              value: "arrendador"
+            - name: db_contrasena
+              value: "123Pablo"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: progrupo14
+  namespace: thymeleaf
+spec:
+#  type: NodePort
+  selector:
+    app: progrupo14
+  ports:
+    - protocol: TCP
+      port: 8080
+#      nodePort: 30001
+      targetPort: 8080
