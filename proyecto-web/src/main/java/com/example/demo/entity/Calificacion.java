@@ -3,12 +3,14 @@ package com.example.demo.entity;
 import java.util.Date;
 
 import org.hibernate.annotations.SQLDelete;
-import org.hibernate.annotations.Where;
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,7 +28,10 @@ public class Calificacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long idSolicitudArrendamiento;
+
+    @OneToOne
+    private solicitudArrendamiento solicitudArrendamiento;
+
     private int calificacionArrendatario;
     private String comentarioArrendatario;
     private int calificacionPropiedad;

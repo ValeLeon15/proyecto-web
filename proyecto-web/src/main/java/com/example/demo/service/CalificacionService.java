@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.CalificacionDTO;
+import com.example.demo.dto.PropiedadDTO;
 import com.example.demo.entity.Calificacion;
+import com.example.demo.entity.Propiedad;
 import com.example.demo.repository.CalificacionRepository;
 
 @Service
@@ -56,5 +58,14 @@ public class CalificacionService {
 
     public void delete(Long id) {
         calificacionRepository.deleteById(id);
+    }
+
+    public List<CalificacionDTO> getCalificacionBySolicitud(Long id) {
+        List<Calificacion> calificaciones = calificacionRepository.findBySolicitudArrendamientoId(id);
+        System.out.println("Calificaciones" + calificaciones.toString());
+        List<CalificacionDTO> calificacionDTOs = calificaciones.stream()
+                .map(calificacion -> modelMapper.map(calificacion, CalificacionDTO.class))
+                .collect(Collectors.toList());
+        return calificacionDTOs;
     }
 }

@@ -58,8 +58,8 @@ public class PropiedadService {
     public void delete(Long id) {
         propiedadRepository.deleteById(id);
     }
-
-    public List<PropiedadDTO> getPropiedadesArrendador(Long id) {
+     
+    public List<PropiedadDTO> getPropiedadesByArrendador(Long id) {
         List<Propiedad> propiedades = propiedadRepository.findByArrendadorId(id);
         System.out.println("Propiedades" + propiedades.toString());
         List<PropiedadDTO> propiedadDTOs = propiedades.stream()

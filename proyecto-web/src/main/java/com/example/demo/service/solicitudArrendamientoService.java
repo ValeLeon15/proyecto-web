@@ -57,9 +57,9 @@ public class solicitudArrendamientoService {
     public void delete(Long id) {
         solicitudArrendamientoRepository.deleteById(id);
     }
-
-    public List<solicitudArrendamientoDTO> getSolicitudesArrendatario(Long id) {
-        List<solicitudArrendamiento> solicitudesArrendamiento = solicitudArrendamientoRepository.findByIdUsuarioArrendatario(id);
+    
+    public List<solicitudArrendamientoDTO> getSolicitudesByArrendatarioId(Long id) {
+        List<solicitudArrendamiento> solicitudesArrendamiento = solicitudArrendamientoRepository.findByArrendatarioId(id);
         List<solicitudArrendamientoDTO> solicitudArrendamientoDTOs = solicitudesArrendamiento.stream()
                 .map(solicitudArrendamiento -> modelMapper.map(solicitudArrendamiento, solicitudArrendamientoDTO.class))
                 .collect(Collectors.toList());

@@ -1,12 +1,14 @@
 package com.example.demo.entity;
 
 import org.hibernate.annotations.SQLDelete;
-import org.hibernate.annotations.Where;
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,5 +36,7 @@ public class Propiedad {
     private boolean tienePiscina;
     private boolean tieneAsador;
     private int valorNoche;
-    private int arrendadorId; //esta mal
+
+    @ManyToOne
+    private Arrendador arrendador;
 }

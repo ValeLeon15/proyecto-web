@@ -8,6 +8,6 @@ import com.example.demo.entity.Propiedad;
 
 public interface PropiedadRepository extends CrudRepository <Propiedad,Long>{
 
-  List<Propiedad> findByArrendadorId(Long id);
+    List<Propiedad> findByArrendadorId(Long id);
 
 }

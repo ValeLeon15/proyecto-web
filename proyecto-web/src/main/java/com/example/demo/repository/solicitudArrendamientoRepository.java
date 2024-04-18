@@ -9,5 +9,5 @@ import com.example.demo.entity.solicitudArrendamiento;
 public interface solicitudArrendamientoRepository extends CrudRepository <solicitudArrendamiento,Long> {
 
 
-    List<solicitudArrendamiento> findByIdUsuarioArrendatario(Long id);
+        List<solicitudArrendamiento> findByArrendatarioId(Long id);
 }
