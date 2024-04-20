@@ -13,6 +13,7 @@ import { PropiedadListComponent } from './propiedad/propiedad-list/propiedad-lis
 import { PropiedadViewComponent } from './propiedad/propiedad-view/propiedad-view.component';
 import { ArrendadorListComponent } from './arrendador/arrendador-list/arrendador-list.component';
 import { ArrendatarioEditComponent } from './arrendatario/arrendatario-edit/arrendatario-edit.component';
+import { BarraComponent } from './shared/barra/barra.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ArrendatarioEditComponent } from './arrendatario/arrendatario-edit/arre
     PropiedadViewComponent,
     ArrendadorListComponent,
     ArrendatarioEditComponent,
+    BarraComponent
   ],
   imports: [
     BrowserModule,
