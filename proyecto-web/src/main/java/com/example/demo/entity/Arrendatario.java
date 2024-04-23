@@ -1,8 +1,5 @@
 package com.example.demo.entity;
 
-import org.hibernate.annotations.SQLDelete;
-
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,7 +15,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 
-@SQLDelete(sql = "DELETE FROM arrendatario WHERE id=?")
+
 public class Arrendatario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

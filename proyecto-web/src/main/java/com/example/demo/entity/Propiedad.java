@@ -1,13 +1,10 @@
 package com.example.demo.entity;
 
-import org.hibernate.annotations.SQLDelete;
-
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,7 +17,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 
-@SQLDelete(sql = "DELETE FROM propiedad WHERE id=?")
 public class Propiedad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,6 +33,6 @@ public class Propiedad {
     private boolean tieneAsador;
     private int valorNoche;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     private Arrendador arrendador;
 }

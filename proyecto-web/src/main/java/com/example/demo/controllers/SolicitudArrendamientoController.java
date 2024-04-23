@@ -60,9 +60,9 @@ public class SolicitudArrendamientoController {
     }
 
     //obtener solicitud de arrendamiento según idUsuarioArrendatario
-    /* 
+    
     @GetMapping(value = "/arrendatario/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<solicitudArrendamientoDTO> getSolicitudesArrendatario(@PathVariable Long id){
-        return solicitudArrendamientoService.getSolicitudesArrendatario(id);
-    }*/
+        return solicitudArrendamientoService.getSolicitudesByArrendatarioId(id);
+    }
 }
