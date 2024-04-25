@@ -41,11 +41,12 @@ public class PropiedadController {
     }
     
     @CrossOrigin
-    @PostMapping( produces = MediaType.APPLICATION_JSON_VALUE)
-    public PropiedadDTO save( @RequestBody PropiedadDTO propiedadDTO){
+    @PostMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public PropiedadDTO save(@RequestBody PropiedadDTO propiedadDTO, @PathVariable Long id) {
         System.out.println("propiedadDTO: " + propiedadDTO.toString());
-        return propiedadService.save(propiedadDTO);
+        return propiedadService.saveWithArrendador(propiedadDTO, id);
     }
+
 
     @CrossOrigin
     @PutMapping( produces = MediaType.APPLICATION_JSON_VALUE)
