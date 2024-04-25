@@ -63,6 +63,9 @@ public class PropiedadService {
         if (propiedadOpt.isPresent()) {
             Propiedad propiedad = propiedadOpt.get();
             propiedadDTO = modelMapper.map(propiedad, PropiedadDTO.class);
+            if (propiedad.getArrendador() != null) {
+                propiedadDTO.setArrendadorId(propiedad.getArrendador().getId());                
+            }
         }
         return propiedadDTO;
     }
@@ -70,10 +73,17 @@ public class PropiedadService {
     public List<PropiedadDTO> get() {
         List<Propiedad> propiedades = (List<Propiedad>) propiedadRepository.findAll();
         List<PropiedadDTO> propiedadDTOs = propiedades.stream()
-                .map(propiedad -> modelMapper.map(propiedad, PropiedadDTO.class))
+                .map(propiedad -> {
+                    PropiedadDTO propiedadDTO = modelMapper.map(propiedad, PropiedadDTO.class);
+                    if (propiedad.getArrendador() != null) {
+                        propiedadDTO.setArrendadorId(propiedad.getArrendador().getId());
+                        // Aquí puedes mapear otros atributos del arrendador si es necesario
+                    }
+                    return propiedadDTO;
+                })
                 .collect(Collectors.toList());
         return propiedadDTOs;
-    }    
+    }
 
     public PropiedadDTO update(PropiedadDTO propiedadDTO) {
         Propiedad propiedad = modelMapper.map(propiedadDTO, Propiedad.class);
