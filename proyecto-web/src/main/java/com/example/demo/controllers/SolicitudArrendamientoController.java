@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.solicitudArrendamientoDTO;
@@ -42,9 +43,11 @@ public class SolicitudArrendamientoController {
     }
     
     @CrossOrigin
-    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public solicitudArrendamientoDTO save(@RequestBody solicitudArrendamientoDTO solicitudArrendamientoDTO){
-        return solicitudArrendamientoService.save(solicitudArrendamientoDTO);
+    @PostMapping(value = "/{idPropiedad}/{idArrendatario}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public solicitudArrendamientoDTO save(@RequestBody solicitudArrendamientoDTO solicitudArrendamientoDTO,
+                                          @PathVariable Long idPropiedad,
+                                          @PathVariable Long idArrendatario) {
+        return solicitudArrendamientoService.save(solicitudArrendamientoDTO, idPropiedad, idArrendatario);
     }
 
     @CrossOrigin

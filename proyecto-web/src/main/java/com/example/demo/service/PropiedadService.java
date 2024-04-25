@@ -23,6 +23,7 @@ public class PropiedadService {
 
     @Autowired
     ArrendadorController arrendadorController;
+    
     ModelMapper modelMapper;
 
     @Autowired

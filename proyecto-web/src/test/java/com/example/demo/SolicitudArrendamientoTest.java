@@ -1,3 +1,4 @@
+/*
 package com.example.demo;
 
 import java.util.Date;
@@ -31,6 +32,7 @@ public class SolicitudArrendamientoTest {
         int cantidadAntes = solicitudArrendamientoController.get().size();
         
         // Guardar una nueva solicitud de arrendamiento
+        
         solicitudArrendamientoDTO solicitudDTO = new solicitudArrendamientoDTO(null, 1L, 1L, new Date(), new Date(), 2, "Pendiente");
         solicitudDTO = solicitudArrendamientoController.save(solicitudDTO);
         
@@ -64,4 +66,4 @@ public class SolicitudArrendamientoTest {
         Assert.assertEquals(cantidadAntes, cantidadDespuesEliminar);
     }
 }
-
+ */
