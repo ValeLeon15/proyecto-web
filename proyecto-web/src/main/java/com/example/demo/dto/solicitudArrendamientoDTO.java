@@ -15,12 +15,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class solicitudArrendamientoDTO {
-    @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
-    private int idSolicitudArrendamiento;
-    private int idPropiedad;
-    private int idUsuarioArrendatario;
+    private Long idPropiedad;
+    private Long idArrendatario;
     private Date fechaInicial;
     private Date fechaFinal;
     private int cantPersonas;

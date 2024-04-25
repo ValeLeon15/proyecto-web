@@ -30,7 +30,7 @@ public class ArrendadorTest {
         int cantidadAntes = arrendadorController.get().size();
         
         // Guardar un nuevo arrendador
-        ArrendadorDTO arrendadorDTO = new ArrendadorDTO(null, "nombre", "apellido", "correo", "contraseña", 3434);
+        ArrendadorDTO arrendadorDTO = new ArrendadorDTO(null, "nombre", "apellido", "correo", "contrasena", 3434);
         arrendadorDTO = arrendadorController.save(arrendadorDTO);
         
         // Verificar que se haya guardado correctamente

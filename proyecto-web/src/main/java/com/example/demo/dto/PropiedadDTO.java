@@ -13,8 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PropiedadDTO {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     private Long id;
     private String nombrePropiedad;
     private String municipio;
@@ -27,5 +26,5 @@ public class PropiedadDTO {
     private boolean tienePiscina;
     private boolean tieneAsador;
     private int valorNoche;
-    private int arrendadorId; //esta mal
+    private Long arrendadorId;
 }

@@ -58,4 +58,10 @@ public class CalificacionController {
     public void delete(@PathVariable Long id){
         calificacionService.delete(id);
     }
+
+    @CrossOrigin
+    @GetMapping( value = "/solicitud/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<CalificacionDTO> getCalificacionesSolicitud ( @PathVariable Long id ){
+        return calificacionService.getCalificacionBySolicitud(id);
+    }
 }

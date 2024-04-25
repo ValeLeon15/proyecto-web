@@ -31,7 +31,7 @@ public class SolicitudArrendamientoTest {
         int cantidadAntes = solicitudArrendamientoController.get().size();
         
         // Guardar una nueva solicitud de arrendamiento
-        solicitudArrendamientoDTO solicitudDTO = new solicitudArrendamientoDTO(null, 1, 1, 1, new Date(), new Date(), 2, "Pendiente");
+        solicitudArrendamientoDTO solicitudDTO = new solicitudArrendamientoDTO(null, 1L, 1L, new Date(), new Date(), 2, "Pendiente");
         solicitudDTO = solicitudArrendamientoController.save(solicitudDTO);
         
         // Verificar que se haya guardado correctamente

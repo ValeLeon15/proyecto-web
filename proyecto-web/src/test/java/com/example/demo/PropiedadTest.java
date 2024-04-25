@@ -29,7 +29,7 @@ public class PropiedadTest {
         int cantidadAntes = propiedadController.get().size();
         
         // Guardar una nueva propiedad
-        PropiedadDTO propiedadDTO = new PropiedadDTO(null, "Casa de campo", "Medellín", "Antioquia", "Alquiler", "Hermosa casa de campo con vista a las montanas", 4, 2, true, true, false, 150000, 5);
+        PropiedadDTO propiedadDTO = new PropiedadDTO(null, "Casa de campo", "Medellín", "Antioquia", "Alquiler", "Hermosa casa de campo con vista a las montanas", 4, 2, true, true, false, 150000, 5L);
         propiedadDTO = propiedadController.save(propiedadDTO);
         
         // Verificar que se haya guardado correctamente
@@ -43,12 +43,12 @@ public class PropiedadTest {
         System.out.println("-----------------");
 
         // Actualizar la descripción de la propiedad
-        propiedadDTO.setDescripcion("Acogedora casa de campo con vista a las montañas");
+        propiedadDTO.setDescripcion("Acogedora casa de campo con vista a las montanas");
         propiedadController.update(propiedadDTO);
         
         // Verificar que se haya actualizado correctamente
         PropiedadDTO propiedadActualizadaDTO = propiedadController.get(propiedadDTO.getId());
-        Assert.assertEquals("Acogedora casa de campo con vista a las montañas", propiedadActualizadaDTO.getDescripcion());
+        Assert.assertEquals("Acogedora casa de campo con vista a las montanas", propiedadActualizadaDTO.getDescripcion());
 
         System.out.println("-----------------");
         System.out.println("-----------------");
