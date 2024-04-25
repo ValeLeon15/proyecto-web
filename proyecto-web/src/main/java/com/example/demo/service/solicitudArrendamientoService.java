@@ -29,17 +29,23 @@ public class solicitudArrendamientoService {
         solicitudArrendamientoDTO solicitudArrendamientoDTO = null;
         if (solicitudArrendamientoOpt.isPresent()) {
             solicitudArrendamiento solicitudArrendamiento = solicitudArrendamientoOpt.get();
-            solicitudArrendamientoDTO = modelMapper.map(solicitudArrendamiento, solicitudArrendamientoDTO.class);
+            solicitudArrendamientoDTO = convertToDTO(solicitudArrendamiento);
         }
         return solicitudArrendamientoDTO;
     }
 
     public List<solicitudArrendamientoDTO> get() {
         List<solicitudArrendamiento> solicitudesArrendamiento = (List<solicitudArrendamiento>) solicitudArrendamientoRepository.findAll();
-        List<solicitudArrendamientoDTO> solicitudArrendamientoDTOs = solicitudesArrendamiento.stream()
-                .map(solicitudArrendamiento -> modelMapper.map(solicitudArrendamiento, solicitudArrendamientoDTO.class))
+        return solicitudesArrendamiento.stream()
+                .map(this::convertToDTO)
                 .collect(Collectors.toList());
-        return solicitudArrendamientoDTOs;
+    }
+
+    private solicitudArrendamientoDTO convertToDTO(solicitudArrendamiento solicitudArrendamiento) {
+        solicitudArrendamientoDTO solicitudArrendamientoDTO = modelMapper.map(solicitudArrendamiento, solicitudArrendamientoDTO.class);
+        solicitudArrendamientoDTO.setIdPropiedad(solicitudArrendamiento.getPropiedad().getId());
+        solicitudArrendamientoDTO.setIdArrendatario(solicitudArrendamiento.getArrendatario().getId());
+        return solicitudArrendamientoDTO;
     }
 
     public solicitudArrendamientoDTO save(solicitudArrendamientoDTO solicitudArrendamientoDTO) {
