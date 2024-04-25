@@ -61,7 +61,7 @@ public class PropiedadController {
 
     //"localhost:8080//progrupo14/propiedad/arrendador/{id}"
     //crear un método para que obtenga todos las Propiedades dependiendo de mi id como arrendador
-    
+    @CrossOrigin
     @GetMapping( value = "/arrendador/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<PropiedadDTO> getPropiedadesArrendador( @PathVariable Long id ){
         return propiedadService.getPropiedadesByArrendador(id);
