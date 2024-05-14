@@ -17,9 +17,9 @@ public class ArrendadorService {
     //crear cada metodo que va a resolver, por cada clase minimo 5 (encontrar por id, guardar, acutilizar, eliminar, traer todos)
     //siempre retornar un dto
     ArrendadorRepository arrendadorRepository;
-    ModelMapper modelMapper;
+    ModelMapper modelMapper; 
     //constructor para poder usar el arrendadorRepository
-    @Autowired
+    @Autowired //inyeccion de dependencias
     ArrendadorService(ArrendadorRepository arrendadorRepository, ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
         this.arrendadorRepository = arrendadorRepository;
