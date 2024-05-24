@@ -48,7 +48,7 @@ public class ArrendadorService {
         return modelMapper.map(arrendador, ArrendadorDTO.class);
     }
 
-    public ArrendadorDTO update(ArrendadorDTO arrendadorDTO) { //para que no cree un estudiante nuevo, estudianteDTO el id debe ser diferente a null 
+    public ArrendadorDTO update(ArrendadorDTO arrendadorDTO) { 
         Arrendador arrendador = modelMapper.map(arrendadorDTO, Arrendador.class);
         arrendador = arrendadorRepository.save(arrendador);
         return modelMapper.map(arrendador, ArrendadorDTO.class);
