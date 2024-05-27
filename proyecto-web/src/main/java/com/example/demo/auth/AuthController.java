@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Type;
-
+//mejorar
 @RestController
 @RequestMapping(value="/progrupo14/auth")
 @CrossOrigin(origins = "http://localhost")
