@@ -102,6 +102,10 @@ public class PropiedadService {
         List<PropiedadDTO> propiedadDTOs = propiedades.stream()
                 .map(propiedad -> modelMapper.map(propiedad, PropiedadDTO.class))
                 .collect(Collectors.toList());
+        //por cada propiedad asignamos el id del arrendador
+        propiedadDTOs.forEach(propiedadDTO -> {
+            propiedadDTO.setArrendadorId(id);
+        });
         return propiedadDTOs;
     }
 }

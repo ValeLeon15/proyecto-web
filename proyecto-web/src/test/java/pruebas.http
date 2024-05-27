@@ -1,1 +1,53 @@
-GET http://localhost:8080/progrupo14/arrendadores/3
+POST http://localhost:8080/progrupo14/auth/login
+Content-Type: application/json
+
+{
+  "email": "kevin@gmail.com",
+  "password": "hola"
+}
+
+###
+POST http://localhost:8080/progrupo14/auth/register
+Content-Type: application/json
+
+{
+  "nombre": "Carla",
+  "apellido": "Carlson",
+  "correo": "carla@carla.com",
+  "contrasena": "carla123",
+  "telefono": 12345,
+  "tipo": "ARRENDADOR"
+}
+
+###
+POST http://localhost:8080/progrupo14/auth/register
+Content-Type: application/json
+
+{
+  "nombre": "kevin",
+  "apellido": "kevin",
+  "correo": "kevin@gmail.com",
+  "contrasena": "hola",
+  "telefono": 12345,
+  "tipo": "ARRENDATARIO"
+}
+
+###
+GET http://localhost:8080/progrupo14/arrendatarios/12
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJrZXZpbkBnbWFpbC5jb20iLCJpYXQiOjE3MTY4MzUxODIsImV4cCI6MTcxNjg3MTE4Mn0.m8tNDge5-U3SLcACxnh4WycPI0MIEZLpB0WAClHF_aPf-mjSa-YxIDMe8CaI3-4E
+
+###
+POST http://localhost:8080/progrupo14/solicitudarrendamiento/12/9
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJrZXZpbkBnbWFpbC5jb20iLCJpYXQiOjE3MTY4NDA1NjksImV4cCI6MTcxNjg3NjU2OX0.l3YMD3jCfxdGlzHEGx-3FvExyuPoQNJA-DW1lotB8XMFnvGJxs8rEylbNkSIER-P
+
+{
+  "idPropiedad": 12,
+  "idArrendatario": 9,
+  "fechaInicial": "2024-20-05",
+  "fechaFinal": "2024-27-05",
+  "cantPersonas": 8,
+  "estado": "Pendiente"
+}
+
