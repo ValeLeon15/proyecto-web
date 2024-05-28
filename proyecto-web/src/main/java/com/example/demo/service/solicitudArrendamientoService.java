@@ -106,4 +106,12 @@ public class solicitudArrendamientoService {
                 .collect(Collectors.toList());
         return solicitudArrendamientoDTOs;
     }
+
+    public List<solicitudArrendamientoDTO> getSolicitudesByPropiedadId(Long id) {
+        List<solicitudArrendamiento> solicitudesArrendamiento = solicitudArrendamientoRepository.findByPropiedadId(id);
+        List<solicitudArrendamientoDTO> solicitudArrendamientoDTOs = solicitudesArrendamiento.stream()
+                .map(solicitudArrendamiento -> modelMapper.map(solicitudArrendamiento, solicitudArrendamientoDTO.class))
+                .collect(Collectors.toList());
+        return solicitudArrendamientoDTOs;
+    }
 }

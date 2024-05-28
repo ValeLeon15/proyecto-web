@@ -68,4 +68,11 @@ public class SolicitudArrendamientoController {
     public List<solicitudArrendamientoDTO> getSolicitudesArrendatario(@PathVariable Long id){
         return solicitudArrendamientoService.getSolicitudesByArrendatarioId(id);
     }
+
+    //obtener solicitud de arrendamiento según idPropiedad
+    @CrossOrigin
+    @GetMapping(value = "/propiedad/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<solicitudArrendamientoDTO> getSolicitudesPropiedad(@PathVariable Long id){
+        return solicitudArrendamientoService.getSolicitudesByPropiedadId(id);
+    }
 }

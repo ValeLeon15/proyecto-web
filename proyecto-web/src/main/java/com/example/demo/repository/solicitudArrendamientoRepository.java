@@ -10,4 +10,5 @@ public interface solicitudArrendamientoRepository extends CrudRepository <solici
 
 
         List<solicitudArrendamiento> findByArrendatarioId(Long id);
+        List<solicitudArrendamiento> findByPropiedadId(Long id);
 }
